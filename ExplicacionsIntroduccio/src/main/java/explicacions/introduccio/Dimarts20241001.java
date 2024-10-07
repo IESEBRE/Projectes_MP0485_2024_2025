@@ -14,7 +14,6 @@ public class Dimarts20241001 {
 
         //Estructura del switch
         switch(valor){
-
             case 0:
                 System.out.println("Has posat un 0, t'incremento la variable");
                 valor++;
@@ -31,7 +30,6 @@ public class Dimarts20241001 {
                 break;
             default:
                 System.out.println("No has entrat a cap dels casos tractats!!");
-
         }
     }
 }

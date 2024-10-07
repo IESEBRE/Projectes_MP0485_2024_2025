@@ -9,7 +9,10 @@ public class AnyTraspas {
         int any;
         any= ent.nextInt();
 
-        if(any%4==0 && any%100 != 0 || any%400 == 0) System.out.println("SI");
-        else System.out.println("NO");
+//        if(any%4==0 && any%100 != 0 || any%400 == 0) System.out.println("SI");
+//        else System.out.println("NO");
+
+        System.out.println(   any%4==0 && any%100 != 0 || any%400 == 0 ? "SI" : "NO");
+
     }
 }

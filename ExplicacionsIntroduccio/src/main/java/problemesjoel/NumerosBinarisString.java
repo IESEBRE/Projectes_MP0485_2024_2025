@@ -2,7 +2,7 @@ package problemesjoel;
 
 import java.util.Scanner;
 
-public class NumerosBinaris {
+public class NumerosBinarisString {
 
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
@@ -21,11 +21,14 @@ public class NumerosBinaris {
 
             //Anem a convertir el numero de decimal a binari
             String resultat="";
-            while(numero!=0){
-                resultat= (numero%2) + resultat;
-                numero=numero/2;
+            if(numero==0) System.out.println("0");
+            else{
+                while(numero!=0){
+                    resultat= (numero%2) + resultat;
+                    numero=numero/2;
+                }
+                System.out.println(resultat);
             }
-            System.out.println(resultat);
         }
     }
 }

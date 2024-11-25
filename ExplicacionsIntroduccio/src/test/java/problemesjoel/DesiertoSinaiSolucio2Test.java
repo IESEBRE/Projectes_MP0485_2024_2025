@@ -53,7 +53,7 @@ public class DesiertoSinaiSolucio2Test {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         DesiertoSinaiSolucio2.main(new String[]{});
-        assertEquals("\n", outContent.toString());
+        assertEquals("", outContent.toString());
     }
 
     @Test
@@ -73,4 +73,14 @@ public class DesiertoSinaiSolucio2Test {
         DesiertoSinaiSolucio2.main(new String[]{});
         assertEquals("Map3\n", outContent.toString());
     }
+
+    @Test
+    void multiplesMapes2() {
+        String input = "1\n3\nMap1\nMap2\nMap1\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        DesiertoSinaiSolucio2.main(new String[]{});
+        assertEquals("Map1\n", outContent.toString());
+    }
+
 }

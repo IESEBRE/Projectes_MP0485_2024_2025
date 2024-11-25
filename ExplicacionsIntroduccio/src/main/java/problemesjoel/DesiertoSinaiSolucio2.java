@@ -11,6 +11,10 @@ public class DesiertoSinaiSolucio2 {
         while (numCasos-- > 0) {
             //Tractament de cada cas
             int numMapes = ent .nextInt();  //número de mapes a llegir, a l'enunciat li diu k
+            //Tractem a banda el cas en que no tinguem mapes
+            if(numMapes==0){
+               continue;
+            }
             BattleField[] mapes=new BattleField[numMapes];
 
             //Llegim els mapes i comptem els vots de cadascun

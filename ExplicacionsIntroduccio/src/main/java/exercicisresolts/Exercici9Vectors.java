@@ -32,10 +32,6 @@ public class Exercici9Vectors {
             if(comptador[i]>0)
                 System.out.format("La lletra %c ha sortit %d vegades.%n",(char)(i+'A'),comptador[i]);     //generem  la lletra a partir de  l'index aparegut
         }
-
-
-
-
     }
 
 

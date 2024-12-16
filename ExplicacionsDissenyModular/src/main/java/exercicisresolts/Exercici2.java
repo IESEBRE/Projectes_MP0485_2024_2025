@@ -14,6 +14,12 @@ public class Exercici2 {
 
     }
 
+    /**
+     * Prints a sequence of randomly generated characters to the console.
+     * The number of characters printed is determined by the input parameter.
+     *
+     * @param numCaracters the number of random characters to generate and display
+     */
     public static void mostraVarisCaracters(int numCaracters){
 
         for (int i = 0; i < numCaracters; i++) {

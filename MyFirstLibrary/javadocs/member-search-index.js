@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.iesebre.library20242025","c":"Cadenes","l":"Cadenes()","url":"%3Cinit%3E()"},{"p":"com.iesebre.library20242025","c":"Cadenes","l":"retornaCaracter()"},{"p":"com.iesebre.library20242025","c":"Cadenes","l":"retornaCaracter(char, char)","url":"retornaCaracter(char,char)"}]

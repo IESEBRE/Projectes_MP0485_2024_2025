@@ -2,7 +2,7 @@ package com.iesebre.library20242025;
 
 import java.util.Random;
 
-public class Cadenes {
+public class Cadena {
 
     /*
     Comentari multilínia

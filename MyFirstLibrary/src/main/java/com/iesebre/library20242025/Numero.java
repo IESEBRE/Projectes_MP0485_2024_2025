@@ -20,4 +20,30 @@ public class Numero {
 
         return valor;
     }
+
+    /**
+     * Retorna la suma dels n primers números naturals
+     * @param n un número enter
+     * @param recursiu si volem usar la versió recursiva o iterativa
+     * @return la suma dels n primers numeros naturals, o -1 si n és mneor que 0
+     */
+    public static int sumaNaturals(int n, boolean recursiu){
+        //Casos no recursius o de parada
+        if(n<0) return -1;
+        if(n==0) return 0;
+
+        if(recursiu){
+
+            //Cas recursiu
+            return n+sumaNaturals(n-1, true);
+        }else{
+            int suma=0;
+            while(n>0){
+                suma+=n;
+                n--;
+            }
+            return suma;
+        }
+    }
+
 }

@@ -1,8 +1,0 @@
-type: framework
-custom_name: What is Move refactoring?
-content:
-  - WhatIsMoveMethodRefactoring
-  - FindMoreAppropriateFilesForClassesPractice
-  - FindMoreAppropriateClassesForMethodsPractice
-is_template_based: false
-current_task: 0

@@ -1,1 +1,0 @@
-# Tarea 2/2: ¿Cuál de los siguientes es un mal olor de código?

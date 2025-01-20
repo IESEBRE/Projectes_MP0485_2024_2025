@@ -1,7 +1,0 @@
-type: framework
-custom_name: Facade Pattern - Practice
-content:
-  - FacadePattern
-  - Practice
-is_template_based: false
-current_task: 0

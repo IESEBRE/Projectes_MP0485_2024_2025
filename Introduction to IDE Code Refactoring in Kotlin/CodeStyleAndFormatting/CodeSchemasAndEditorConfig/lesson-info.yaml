@@ -1,8 +1,0 @@
-type: framework
-custom_name: Code schemas and EditorConfig
-content:
-  - Theory
-  - ConfigureCodeStyleSettingsInIDE
-  - ReformatTheCodeAccordingToStyleSettingsPractice
-is_template_based: false
-current_task: 0

@@ -1,6 +1,0 @@
-custom_name: "Section 4: Moving code"
-content:
-  - Introduction
-  - CohesionAndCoupling
-  - WhatIsMoveMethodRefactoring
-  - WhatArePullUpAndPushDownRefactorings

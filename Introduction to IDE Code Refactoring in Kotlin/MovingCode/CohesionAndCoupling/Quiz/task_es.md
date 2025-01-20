@@ -1,1 +1,0 @@
-# Tarea: 2/2: En el diseño de software, ¿cuál debería ser la relación ideal entre cohesión y acoplamiento?

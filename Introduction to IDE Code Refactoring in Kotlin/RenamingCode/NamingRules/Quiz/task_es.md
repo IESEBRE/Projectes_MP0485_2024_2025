@@ -1,0 +1,1 @@
+# Tarea 2/2: ¿Cuál de las siguientes es una característica de un buen nombre?

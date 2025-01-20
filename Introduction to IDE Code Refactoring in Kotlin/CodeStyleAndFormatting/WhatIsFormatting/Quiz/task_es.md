@@ -1,0 +1,1 @@
+# Tarea 2/4: ¿Cuál es el principal beneficio de seguir un formato de código consistente?

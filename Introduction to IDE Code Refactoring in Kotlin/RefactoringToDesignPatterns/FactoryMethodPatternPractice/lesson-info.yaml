@@ -1,0 +1,7 @@
+type: framework
+custom_name: Factory Method Pattern - Practice
+content:
+  - FactoryMethodPattern
+  - Practice
+is_template_based: false
+current_task: 0

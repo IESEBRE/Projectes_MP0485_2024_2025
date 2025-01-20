@@ -1,0 +1,1 @@
+# Tarea 2/2: ¿Cuál es el propósito de la refactorización en el desarrollo de software?

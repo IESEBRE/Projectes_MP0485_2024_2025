@@ -1,0 +1,87 @@
+type: edu
+custom_name: "Fix typos, change the code to comply with naming rules and camelCase\
+  \ convention"
+files:
+  - name: src/main/kotlin/jetbrains/refactoring/course/renaming/Student.kt
+    visible: true
+    placeholders:
+      - offset: 47
+        length: 539
+        placeholder_text: |-
+          class Student(private var name: String, private var age: Int, private var averageScore: Double) {
+          
+              fun getgradestatus(): String {
+                  return when (averageScore) {
+                      in 90.0..100.0 -> "Excellent"
+                      in 80.0..89.99 -> "Good"
+                      in 70.0..79.99 -> "Average"
+                      else -> "Fail"
+                  }
+              }
+          
+              fun SetName(newName: String) {
+                  name = newName
+              }
+          
+              fun setaGe(newAge: Int) {
+                  age = newAge
+              }
+          
+              fun setAvergeScore(newScore: Double) {
+                  averageScore = newScore
+              }
+          }
+        initial_state:
+          length: 539
+          offset: 47
+        initialized_from_dependency: false
+        encrypted_possible_answer: h+2CtXI65OAY4WzefIw2cMENUl7CO5wpZud9i+/XDnDaY/PQa5PHPVXsQXJvlfP1sK79EjRf50wmyT0jrNehmn5I2XRBM67dTaw9d/VLzxSBZzMqXc6sBpvxUnXu5MpUsGGKj8AAcy4BRxActhIZmeFrte22GOrPRm/HKCnoEQNl0HNSe8JX1qT4SqXAElB1uREMti0VDszgv3A3Ue5sdJNi28fhXqjqBoOKdIfkDmAOGhSzSpXTgR4kXw2A2+AX19WibvBl2FmPP/6d8m+DLtNKLFhEIpQZW0uycgKnzyuJnKY1NXHTbLtuV8SmqWSqOu95P3I74j4QFGFgTFFZPWKjA6Q98T4R51UKpIxvkvvnhh3Ia+RkgWT7Ld/zAyxXblPYkPJ6QS5eIKcv2WYgwp644/laqx7S3gui1VRYzl3VcvxrQbNmxFoS6qIfL3bGdTbuFtCUCJGj24nr0nI+o2PRLJig6hXT90xYRuvd51zh5RtNr8NDl2f0DeqNJ5i4sruG5XUjJlEbOu5ub6fpzj2zVw1UK2FUScOgXq2L3fjfvWJKLv8jOdGJh9VXjhMoGL7wt6iw2sf87s0SMo5n89WsGRW4cvXPhnu3JYD9NRzlVwru6kthLHM2PsdRQ4QQiLPcPbF/G2hQR98gL7irbhN8REp61gY0sIxTs0RpNdHEmxUnNjgcB/Weqa9sfclSuY9F2+onbmTXIAmkDRSviw==
+        selected: false
+        status: Unchecked
+    learner_created: false
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+  - name: test/StudentTestClass.kt
+    visible: false
+    learner_created: false
+  - name: src/main/kotlin/jetbrains/refactoring/course/renaming/University.kt
+    visible: true
+    placeholders:
+      - offset: 47
+        length: 751
+        placeholder_text: |-
+          class University {
+              private val students = mutableListOf<Student>()
+          
+              fun admitStudent(name: String, age: Int, averageScore: Double) {
+                  val student = Student(name, age, averageScore)
+                  students.add(student)
+              }
+          
+              fun updateStudentInfo(index: Int, newName: String, newAge: Int, newScore: Double) {
+                  if (index >= 0 && index < students.size) {
+                      val student = students[index]
+                      student.SetName(newName)
+                      student.setaGe(newAge)
+                      student.setAvergeScore(newScore)
+                  }
+              }
+          
+              fun getStudentGradeStatus(index: Int): String {
+                  if (index >= 0 && index < students.size) {
+                      return students[index].getgradestatus()
+                  }
+                  return "Invalid index"
+              }
+          }
+        initial_state:
+          length: 751
+          offset: 47
+        initialized_from_dependency: false
+        encrypted_possible_answer: U0ntWB1jEO7NGWsRn2i/3KinvTYtuFnJb5f+peGKGjj9ZvGby/B2L2qeInOLVKohP6xUJPHd6fj9bUIhp2VS4LWU2R1O20B56jUJa4doUbgAk4TruOksT/aHJbM9H+D7t+oXeDQmkD6lpjdHBP02uu+TjrGUQs2R+cxUqOzwG/NG1XlfVOI20wlGqJi/lpUffQ5Qn8fzMbvgAIA5GDqslMXpZT4EFuOgghF4II6GFWKUI9Am3UuQIjDusFj0dDzEGdEQDcOUXizkh8AfmvTg0vUD/o3p1wJX0dwxFZncXH2pqCYraMzK4xw7R/sa/jj5c5070UOhGiiW/xT8ws9xA7u4sRJv5VcIDcLk7YX4NGqtDcNTAWmWUNy9Frpw1ZSQ7yHVXiTiM4FG1t2ilDfvKvENCyPlFq5DxBCLfYnm796JUA2FbkZA8svDbpDNwMdZi1G95uk9YQ5RSq3rHrLkQEiGudByuxn5UvX+LRxfZECazN/t0brxHR/+WjSZvc5DiQCkTe4chcWAtouotRV72xZps0oYmCVaPqmXFPiZCPn/BU/XHXnkTZqvD+fq1hDzc26UaEyIl/bGjso3LDDeU+nd/Sojeywac+uGgimV5l2HqWP2kHzH1p2oS7/ZznVZng9DYhhXQr2Zz4DdnxK+j2bqVNTGaEMejx6HjAHo/DefCvU4uFyS0INTXIepUy7y2Y3Ml5ZausiDo4Sli8CpNOAnsc6et3a3qcTkBvMVi+rYaJknucjADVBfl6EhYR9jqYpF0EoqmCO6QaqMw2tWuubd5ka3jn4yOnTLoQ1fmzSCtbcChmnjalZx/QO8kCpQ/tSWaG1g/utORx05A+dW4gLcrbHOaN6Nuk2OyQIF6syvk6IQiTX1S81YWhRdeyaOT3vq+LuAJ6YDkz/0oZe1oDn6sFsLuhajva5eqwj2OBD/mRqIRWCLvJG7XAY1Mjr2vkWwZMM5GzjT/bFhcW2c5/f6sDJ0jbc0WRFWtySplRUDx0HN/aAc3xZgd7iAjSMI
+        selected: false
+        status: Unchecked
+    learner_created: false
+status: Unchecked
+record: -1

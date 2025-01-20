@@ -1,0 +1,30 @@
+type: edu
+custom_name: Practice
+files:
+  - name: test/Tests.kt
+    visible: false
+    learner_created: false
+  - name: src/main/kotlin/jetbrains/refactoring/course/inlining/Task.kt
+    visible: true
+    placeholders:
+      - offset: 128
+        length: 271
+        placeholder_text: |-
+          fun readFileContent(path: String): String {
+                  val fileExists = File(path).exists()
+                  if (!fileExists) {
+                      throw FileNotFoundException("File not found at path: $path")
+                  }
+                  val content = File(path).readText()
+                  return content
+              }
+        initial_state:
+          length: 271
+          offset: 128
+        initialized_from_dependency: false
+        encrypted_possible_answer: U2C4jvQxo5jb148x36n3OvH/JttfO9zxDdIJaC1G43r+ppmn2ZcuVfDw0wLVIqYqlruKLR5JJMD+A8eIJjub4e3RibfZ8c4ibwCgCvTKYr5MCxDv2+0UJ5k01HODwAt55WZgr+vZeALpSHgQ9J9bhNt6dwxorayD25DvgvaEUGdQb4nCOZ7OYbw6DHrnlGcS/4d32A/SauTU4FZGp5jjruAkYHt1ZSWr9gUCa3QAfi3dtqjl342QaDAFsPZhKytAgsRZSkzsRJHGsTPfEZVi6w==
+        selected: false
+        status: Unchecked
+    learner_created: false
+status: Unchecked
+record: -1

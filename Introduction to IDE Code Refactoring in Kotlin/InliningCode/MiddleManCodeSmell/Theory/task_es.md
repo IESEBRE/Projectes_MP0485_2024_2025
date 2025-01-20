@@ -1,0 +1,7 @@
+El **mal olor de código del intermediario** se refiere a una situación en la que una **clase o método actúa como un simple intermediario**, reenviando llamadas a otra clase o método **sin añadir ningún comportamiento o lógica significativa** por su cuenta. Esencialmente, el intermediario no proporciona ningún valor adicional y simplemente añade una abstracción innecesaria, haciendo que el código sea más complejo y difícil de entender.
+
+La refactorización mediante el método en línea puede ayudar a resolver el mal olor de código del intermediario **eliminando los métodos innecesarios y llamando directamente a los métodos de destino** desde las clases cliente. Al usar métodos en línea, eliminas el intermediario y reduces la abstracción, lo que conduce a un código más limpio y directo.
+
+El archivo **MiddleMan.kt** contiene un ejemplo del mal olor de código del intermediario.
+
+En este ejemplo, la clase `MiddleMan` actúa como un intermediario al reenviar la llamada a `DataProvider` para obtener datos. Sin embargo, la clase `MiddleMan` no añade ningún comportamiento o valor significativo por sí misma y solo complica el código. Este es un ejemplo típico del mal olor de código del intermediario.

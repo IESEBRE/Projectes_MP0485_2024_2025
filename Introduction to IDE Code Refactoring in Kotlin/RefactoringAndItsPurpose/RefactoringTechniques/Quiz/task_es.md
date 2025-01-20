@@ -1,0 +1,1 @@
+# Tarea 2/2: ¿Cuál es la principal diferencia entre la refactorización "root-canal" y la refactorización "floss"?

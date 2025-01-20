@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
+        <option name="distributionType" value="WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/CodeSchemasAndEditorConfig/task" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/Introduction/CodeStyleAndFormattingIntroduction" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/WhatIsFormatting/Quiz" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/WhatIsFormatting/ReformatTheCodePractice" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/WhatIsFormatting/ReformatTheCodeUsingIDEPractice" />
+            <option value="$PROJECT_DIR$/CodeStyleAndFormatting/WhatIsFormatting/Theory" />
+            <option value="$PROJECT_DIR$/Conclusion/Conclusion/Conclusion" />
+            <option value="$PROJECT_DIR$/Conclusion/FeedbackSurvey/FeedbackSurvey" />
+            <option value="$PROJECT_DIR$/ExtractingCode/Introduction/ExtractingCodeIntroduction" />
+            <option value="$PROJECT_DIR$/ExtractingCode/WhatIsExtractMethodRefactoring/ExtractDuplicatedCodePractice" />
+            <option value="$PROJECT_DIR$/ExtractingCode/WhatIsExtractMethodRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/ExtractingCode/WhatIsExtractVariableRefactoring/ExtractMagicConstantsPractice" />
+            <option value="$PROJECT_DIR$/ExtractingCode/WhatIsExtractVariableRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/InliningCode/InlineMethodRefactoring/InlineMethodAndVariablesPractice" />
+            <option value="$PROJECT_DIR$/InliningCode/InlineMethodRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/InliningCode/Introduction/InliningCodeIntroduction" />
+            <option value="$PROJECT_DIR$/InliningCode/MiddleManCodeSmell/task" />
+            <option value="$PROJECT_DIR$/InliningCode/WhatIsInlineVariableRefactoring/InlineVariablesPractice" />
+            <option value="$PROJECT_DIR$/InliningCode/WhatIsInlineVariableRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/Introduction/GettingToKnowYou/GettingToKnowYou" />
+            <option value="$PROJECT_DIR$/Introduction/Introduction/Introduction" />
+            <option value="$PROJECT_DIR$/Introduction/JoinOurDiscordCommunity/JoinOurDiscordCommunity" />
+            <option value="$PROJECT_DIR$/MovingCode/CohesionAndCoupling/Quiz" />
+            <option value="$PROJECT_DIR$/MovingCode/CohesionAndCoupling/Theory" />
+            <option value="$PROJECT_DIR$/MovingCode/Introduction/MovingCodeIntroduction" />
+            <option value="$PROJECT_DIR$/MovingCode/WhatArePullUpAndPushDownRefactorings/task" />
+            <option value="$PROJECT_DIR$/MovingCode/WhatIsMoveMethodRefactoring/task" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/CommonCodeIssuesAndTheirImpactOnCodeQuality/Quiz" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/CommonCodeIssuesAndTheirImpactOnCodeQuality/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/GettingFamiliarWithIDERefactoringFeatures/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/Introduction/RefactoringAndItsPurposeIntroduction" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/Practice/RefactoringAndItsPurposePractice" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/RefactoringTechniques/Quiz" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/RefactoringTechniques/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/WhatIsCodeRefactoring/Quiz" />
+            <option value="$PROJECT_DIR$/RefactoringAndItsPurpose/WhatIsCodeRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/DesignPatternsAndTheirRelationshipsWithRefactoring/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/FacadePatternPractice/task" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/FacadePatternTheory/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/FactoryMethodPatternPractice/task" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/FactoryMethodPatternTheory/Theory" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/Introduction/RefactoringToDesignPatternsIntroduction" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/StrategyPatternPractice/task" />
+            <option value="$PROJECT_DIR$/RefactoringToDesignPatterns/StrategyPatternTheory/Theory" />
+            <option value="$PROJECT_DIR$/RenamingCode/Introduction/RenamingCodeIntroduction" />
+            <option value="$PROJECT_DIR$/RenamingCode/NamingRules/Quiz" />
+            <option value="$PROJECT_DIR$/RenamingCode/NamingRules/Theory" />
+            <option value="$PROJECT_DIR$/RenamingCode/RenameRefactoringInIDE/FixTyposPractice" />
+            <option value="$PROJECT_DIR$/RenamingCode/RenameRefactoringInIDE/Quiz" />
+            <option value="$PROJECT_DIR$/RenamingCode/RenameRefactoringInIDE/RenameRefactoringInIDE" />
+            <option value="$PROJECT_DIR$/util" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

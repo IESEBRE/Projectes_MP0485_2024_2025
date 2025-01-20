@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":MovingCode-Introduction-MovingCodeIntroduction" external.linked.project.path="$MODULE_DIR$/../../../../../MovingCode/Introduction/MovingCodeIntroduction" external.root.project.path="$MODULE_DIR$/../../../../.." external.system.id="GRADLE" external.system.module.group="Refactoring_Course" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../../../MovingCode/Introduction/MovingCodeIntroduction">
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../MovingCode/Introduction/MovingCodeIntroduction/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../MovingCode/Introduction/MovingCodeIntroduction/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../../../MovingCode/Introduction/MovingCodeIntroduction/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

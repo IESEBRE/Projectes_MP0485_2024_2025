@@ -74,8 +74,12 @@ public class Videojoc {
         return maxJugadors;
     }
 
-    public void setMaxJugadors(int maxJugadors) {
-        this.maxJugadors = maxJugadors;
+    public boolean setMaxJugadors(int maxJugadors) {
+        if(maxJugadors>=0 && this.maxJugadors!=maxJugadors){
+            this.maxJugadors = maxJugadors;
+            return true;            //Indica que SÍ hem canviat el valor de la propietat
+        }
+        return false;               //Indica que NO hem canviat el valor de la propietat
     }
 
     public double getPreu() {
@@ -131,6 +135,8 @@ class Creadora{
         joc.setCreador("Microsoft");
         joc.setPreu(29.99);
         joc.setMultiplataforma(true);
+        if(joc.setMaxJugadors(-5)) System.out.println("Hem canviat el número màxim de jugadors.");
+        else System.out.println("No s'ha pogut canviar el número màxim de jugadors.");
         System.out.println(joc.getNom());
 
         joc=new Videojoc("LOL","14.20","Rol","Riot Games", 0, false);

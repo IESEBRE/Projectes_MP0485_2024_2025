@@ -1,0 +1,378 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Proves</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.iesebre.library20242025</a>
+</div>
+
+<h1>Coverage Summary for Class: Proves (com.iesebre.library20242025)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Proves</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/6)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/25)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.iesebre.library20242025;
+&nbsp;
+&nbsp;import static com.iesebre.library20242025.Data.esBixest;
+&nbsp;
+&nbsp;public class Temps {
+&nbsp;
+&nbsp;    //Propietats
+&nbsp;    private int dia = 1;
+&nbsp;    private int mes = 1;
+&nbsp;    private int any;
+&nbsp;    private int hora;
+&nbsp;    private int minut;
+&nbsp;    private int segon;
+&nbsp;    //Indiquem si volem treballar en data i hora (true), o només en data (false)
+&nbsp;    private boolean dataHora = true;
+&nbsp;
+&nbsp;    //Mètodes constructors
+&nbsp;    public Temps() {
+&nbsp;    }
+&nbsp;
+&nbsp;    //Per poder establir si volem data i hora o només data al moment de crear un objecte
+&nbsp;    public Temps(boolean dataHora) {
+&nbsp;        this.dataHora = dataHora;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Temps(int dia, int mes, int any, boolean dataHora) {
+&nbsp;        this(dia, mes, any);
+&nbsp;        this.dataHora = dataHora;
+&nbsp;    }
+&nbsp;
+&nbsp;    public Temps(int dia, int mes, int any) {
+&nbsp;        dataHora = false;
+&nbsp;        if(Data.dataCorrecta(dia,mes,any)) {
+&nbsp;            this.setDia(dia);
+&nbsp;            this.setMes(mes);
+&nbsp;            this.any = any;
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public Temps(int dia, int mes, int any, int hora, int minut, int segon) {
+&nbsp;        this(dia, mes, any);
+&nbsp;        dataHora = true;
+&nbsp;        this.setHora(hora);
+&nbsp;        this.setMinut(minut);
+&nbsp;        this.setSegon(segon);
+&nbsp;    }
+&nbsp;
+&nbsp;    //Getters i setters
+&nbsp;    public int getDia() {
+&nbsp;        return dia;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setDia(int dia) {
+&nbsp;        if (dia &gt;= 1 &amp;&amp; dia &lt;= 31) {
+&nbsp;            this.dia = dia;
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getMes() {
+&nbsp;        return mes;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setMes(int mes) {
+&nbsp;        if (mes &gt;= 1 &amp;&amp; mes &lt;= 12) {
+&nbsp;            this.mes = mes;
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getAny() {
+&nbsp;        return any;
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAny(int any) {
+&nbsp;        this.any = any;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getHora() {
+&nbsp;        return hora;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setHora(int hora) {
+&nbsp;        if (hora &gt;= 0 &amp;&amp; hora &lt;= 23) {
+&nbsp;            this.hora = hora;
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getMinut() {
+&nbsp;        return minut;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setMinut(int minut) {
+&nbsp;        if (minut &gt;= 0 &amp;&amp; minut &lt;= 59) {
+&nbsp;            this.minut = minut;
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getSegon() {
+&nbsp;        return segon;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean setSegon(int segon) {
+&nbsp;        if (segon &gt;= 0 &amp;&amp; segon &lt;= 59) {
+&nbsp;            this.segon = segon;
+&nbsp;            return true;
+&nbsp;        }
+&nbsp;        return false;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean isDataHora() {
+&nbsp;        return dataHora;
+&nbsp;    }
+&nbsp;
+&nbsp;    //El fem private per no poder canviar la propietat una vegada hem creat l&#39;objecte
+&nbsp;    private void setDataHora(boolean dataHora) {
+&nbsp;        this.dataHora = dataHora;
+&nbsp;    }
+&nbsp;
+&nbsp;    //Mètodes normals
+&nbsp;    public String mostrar() {
+&nbsp;        if (dataHora)
+&nbsp;            return String.format(&quot;%02d/%02d/%04d %02d-%02d-%02d&quot;, dia, mes, any, hora, minut, segon);
+&nbsp;        else
+&nbsp;            return String.format(&quot;%02d/%02d/%04d&quot;, dia, mes, any);
+&nbsp;    }
+&nbsp;
+&nbsp;    public String mostrar(boolean mostrarHora) {
+&nbsp;        if (mostrarHora) return String.format(&quot;%02d-%02d-%02d&quot;, hora, minut, segon);
+&nbsp;        return &quot;&quot;;
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean modificar(int dia, int mes, int any){
+&nbsp;        this.setAny(any);
+&nbsp;        return this.setDia(dia) &amp;&amp; this.setMes(mes);
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean modificar(int dia, int mes, int any, int hora, int minut, int segon){
+&nbsp;        boolean resultat=this.modificar(dia, mes, any); //Canviem la data
+&nbsp;        if(!this.dataHora) return resultat;             //Si l&#39;objecte només té data acabem
+&nbsp;        return resultat &amp;&amp; this.setHora(hora) &amp;&amp; this.setMinut(minut) &amp;&amp; this.setSegon(segon);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Indica si la data de l&#39;objecte és o no correcta
+&nbsp;     * @return true si la data és correcta i false en cas contrari
+&nbsp;     */
+&nbsp;    public boolean dataCorrecta(){
+&nbsp;        //Vector que conté la durada dels 12 mesos d&#39;un any
+&nbsp;        int[] mesos={31,28,31,30,31,30,31,31,30,31,30,31};
+&nbsp;
+&nbsp;
+&nbsp;        //Mirem si l&#39;any és bixest per modificar la durada del febrer
+&nbsp;        if(esBixest(any)) mesos[1]=29;
+&nbsp;
+&nbsp;        //Mirem si el més correcte
+&nbsp;        if(mes&lt;1 || mes&gt;12) return false;
+&nbsp;
+&nbsp;        //Mirem si el dia és correcte
+&nbsp;        return dia&gt;=1 &amp;&amp; dia&lt;=mesos[mes-1];
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Obtenim la data de demà
+&nbsp;     * @return Un nou objecte contenint el dia, mes i any de demà si la data rebuda és correcta, sinó retornem null
+&nbsp;     */
+&nbsp;    public Temps diaSeguent(){
+&nbsp;        if(!dataCorrecta()) return null; //Si la data rebuda és incorrecta no cal fer res
+&nbsp;
+&nbsp;        //Copiem el dia, mes i any de l&#39;objecte a un nou objecte, i així no modificarem el valor de les propietats del this
+&nbsp;        Temps dema=new Temps(dia, mes, any);
+&nbsp;
+&nbsp;        //Incremento un dia a la data actual
+&nbsp;        dema.dia++;
+&nbsp;        if(dema.dataCorrecta()){
+&nbsp;            return dema;
+&nbsp;        }
+&nbsp;
+&nbsp;        //Provem si s&#39;arregla passant al primer dia del mes següent
+&nbsp;        dema.dia=1;
+&nbsp;        dema.mes++;
+&nbsp;        if(dema.dataCorrecta()) return dema;
+&nbsp;
+&nbsp;        //Estem a l&#39;ultim dia de l&#39;any, per tany de mà serà 1 de gener de l&#39;any que ve
+&nbsp;        dema.mes=1;
+&nbsp;        dema.any++;
+&nbsp;        return dema;
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu si les dates que rep són diferents o iguals
+&nbsp;     * @param data2 un objecte que conté el dia, mes i any de la segona data
+&nbsp;     * @return 1 si la data de l&#39;objecte actual és major que la segona, 0 si són iguals, -1 si és menor, i -2 si alguna data és
+&nbsp;     * incorrecta (incloent nuls)
+&nbsp;     */
+&nbsp;    public int comparaDates(Temps data2){
+&nbsp;        //Primer tractem els casos on l&#39;objecte o el paràmetre donen problemes
+&nbsp;        if(!this.dataCorrecta() || data2==null || !data2.dataCorrecta()) return -2;
+&nbsp;
+&nbsp;        return Data.comparaDates(this.dia, this.mes, this.any, data2.dia, data2.mes, data2.any);
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu quants dies hi ha entre 2 dates
+&nbsp;     * @param data2 un objecte número que representa la segona data
+&nbsp;     * @return El número de dies entre la data de l&#39;objecte actual i la segona data si estes són correctes, i -1 si hi ha alguna data incorrecta
+&nbsp;     */
+&nbsp;    public int diferenciaDies(Temps data2) {
+&nbsp;        //Tracto els casos problemàtics
+&nbsp;        if(data2==null) return -1;
+&nbsp;
+&nbsp;        //Retornem el número de dies entre ambdues dates
+&nbsp;        return Data.diferenciaDies(this.dia, this.mes, this.any, data2.dia, data2.mes, data2.any);
+&nbsp;    }
+&nbsp;
+&nbsp;}
+&nbsp;
+<b class="nc">&nbsp;class Proves {</b>
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+<b class="nc">&nbsp;        Temps avui = new Temps(24, 1, 2025);</b>
+<b class="nc">&nbsp;        System.out.println(avui.mostrar());</b>
+&nbsp;
+<b class="nc">&nbsp;        Temps t1 = new Temps(true);</b>
+<b class="nc">&nbsp;        if(t1.modificar(12,12,1212, 0,100,0))</b>
+<b class="nc">&nbsp;            System.out.println(t1.mostrar());</b>
+<b class="nc">&nbsp;        else System.out.println(&quot;No s&#39;ha pogut modificar la data.&quot;);</b>
+&nbsp;
+&nbsp;
+<b class="nc">&nbsp;        Temps t2 = new Temps(1, 1, 2025, 0, 0, 1);</b>
+<b class="nc">&nbsp;        System.out.println(t2.mostrar());</b>
+<b class="nc">&nbsp;        System.out.println(t2.mostrar(true));</b>
+&nbsp;
+<b class="nc">&nbsp;        Temps dema=avui.diaSeguent();</b>
+<b class="nc">&nbsp;        System.out.println(dema.dataCorrecta()?&quot;Data correcta!!&quot;:&quot;Ho sento, la data és incorrecta&quot;);</b>
+<b class="nc">&nbsp;        System.out.println(dema.mostrar());</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(avui.comparaDates(dema)); //-1</b>
+<b class="nc">&nbsp;        System.out.println(dema.comparaDates(avui)); //1</b>
+<b class="nc">&nbsp;        System.out.println(dema.comparaDates(dema)); //0</b>
+<b class="nc">&nbsp;        System.out.println(avui.comparaDates(null)); //-2</b>
+&nbsp;
+<b class="nc">&nbsp;        System.out.println(avui.diferenciaDies(dema)); //1</b>
+<b class="nc">&nbsp;        System.out.println(avui.diferenciaDies(avui)); //0</b>
+<b class="nc">&nbsp;        System.out.println(dema.diferenciaDies(avui)); //1</b>
+<b class="nc">&nbsp;        System.out.println(avui.diferenciaDies(null)); //-1</b>
+&nbsp;
+<b class="nc">&nbsp;        int diesfaltenPerFinalitzarCurs=avui.diferenciaDies(new Temps(27,5,2025));</b>
+<b class="nc">&nbsp;        for (int i = 0; i &lt; diesfaltenPerFinalitzarCurs; i++) {</b>
+<b class="nc">&nbsp;            avui=avui.diaSeguent();</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        System.out.format(&quot;D&#39;aquí %d dies serà %s%n&quot;,diesfaltenPerFinalitzarCurs, avui.mostrar());</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-27 10:48</div>
+</div>
+</body>
+</html>

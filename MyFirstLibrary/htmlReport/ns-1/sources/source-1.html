@@ -1,0 +1,151 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Cadena</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.iesebre.library20242025</a>
+</div>
+
+<h1>Coverage Summary for Class: Cadena (com.iesebre.library20242025)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Cadena</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    66,7%
+  </span>
+  <span class="absValue">
+    (2/3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88,9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.iesebre.library20242025;
+&nbsp;
+&nbsp;import java.util.Random;
+&nbsp;
+<b class="nc">&nbsp;public class Cadena {</b>
+&nbsp;
+&nbsp;    /*
+&nbsp;    Comentari multilínia
+&nbsp;    normal i corrent,
+&nbsp;    no pertany al Javadoc
+&nbsp;     */
+&nbsp;    public static char retornaCaracter() {
+&nbsp;        //Generem un caracter aleatori entre &#39; &#39; i &#39;}&#39;
+<b class="fc">&nbsp;        Random r=new Random();</b>
+<b class="fc">&nbsp;        return (char)(r.nextInt(&#39;}&#39;-&#39; &#39;+1)+&#39; &#39;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Genera un caràcter aleatori entre un caracter mínim i un màxim
+&nbsp;     * @param caracterMinim el caracter aleatori generat més menut possible
+&nbsp;     * @param caracterMaxim el caracter aleatori generat més gran possible
+&nbsp;     * @return el caràcter generat aleatòriament entre un mínim i un màxim.
+&nbsp;     */
+&nbsp;    public static char retornaCaracter(char caracterMinim, char caracterMaxim) {
+&nbsp;        //Primer comprovem si els paràmetres estan ordenats correctament, i sinó els intercanviem
+<b class="fc">&nbsp;        if(caracterMinim&gt;caracterMaxim){</b>
+<b class="fc">&nbsp;            char temp=caracterMinim;</b>
+<b class="fc">&nbsp;            caracterMinim=caracterMaxim;</b>
+<b class="fc">&nbsp;            caracterMaxim=temp;</b>
+&nbsp;        }
+&nbsp;        //Generem un caracter aleatori entre &#39; &#39; i &#39;}&#39;
+<b class="fc">&nbsp;        Random r=new Random();</b>
+<b class="fc">&nbsp;        return (char)(r.nextInt(caracterMaxim-caracterMinim+1)+caracterMinim);</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-27 10:48</div>
+</div>
+</body>
+</html>

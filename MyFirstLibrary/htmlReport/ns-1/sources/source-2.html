@@ -1,0 +1,259 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Data</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.iesebre.library20242025</a>
+</div>
+
+<h1>Coverage Summary for Class: Data (com.iesebre.library20242025)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Data</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/54)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/40)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.iesebre.library20242025;
+&nbsp;
+<b class="nc">&nbsp;public class Data {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu si l&#39;any que rep com a paràmetre és o no bixest (any de traspàs)
+&nbsp;     * @param any el que volem avaluar
+&nbsp;     * @return true si any és bixest i false en cas contrari
+&nbsp;     */
+&nbsp;    public static boolean esBixest(int any){
+<b class="nc">&nbsp;        return any&gt;=1582 &amp;&amp; (any%4==0 &amp;&amp; any%100!=0 || any%400==0);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Indica si la data rebuda és o no correcta
+&nbsp;     * @param dia un número que representa el dia de la data
+&nbsp;     * @param mes un número que representa el mes de la data
+&nbsp;     * @param any un número que representa l&#39;any de la data
+&nbsp;     * @return true si la data és correcta i false en cas contrari
+&nbsp;     */
+&nbsp;    public static boolean dataCorrecta(int dia, int mes, int any){
+&nbsp;        //Vector que conté la durada dels 12 mesos d&#39;un any
+<b class="nc">&nbsp;        int[] mesos={31,28,31,30,31,30,31,31,30,31,30,31};</b>
+&nbsp;
+&nbsp;        //Mirem si l&#39;any és bixest per modificar la durada del febrer
+<b class="nc">&nbsp;        if(esBixest(any)) mesos[1]=29;</b>
+&nbsp;
+&nbsp;        //Mirem si el més correcte
+<b class="nc">&nbsp;        if(mes&lt;1 || mes&gt;12) return false;</b>
+&nbsp;
+&nbsp;        //Mirem si el dia és correcte
+<b class="nc">&nbsp;        return dia&gt;=1 &amp;&amp; dia&lt;=mesos[mes-1];</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Obtenim la data de demà
+&nbsp;     * @param dia un número que representa el dia de la data
+&nbsp;     * @param mes un número que representa el mes de la data
+&nbsp;     * @param any un número que representa l&#39;any de la data
+&nbsp;     * @return Un vector d&#39;enters contenint el dia, mes i any de demà si la data rebuda és correcta, sinó retornem null
+&nbsp;     */
+&nbsp;    public static int[] diaSeguent(int dia, int mes, int any){
+<b class="nc">&nbsp;        if(!dataCorrecta(dia,mes,any)) return null; //Si la data rebuda és incorrecta no cal fer res</b>
+&nbsp;
+<b class="nc">&nbsp;        if(dataCorrecta(dia+1,mes,any)) return new int[]{dia+1, mes ,any};</b>
+<b class="nc">&nbsp;        if(dataCorrecta(1,mes+1,any)) return new int[]{1, mes+1 ,any};</b>
+<b class="nc">&nbsp;        return new int[]{1,1,any+1};</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu si les dates que rep són diferents o iguals
+&nbsp;     * @param data1 un vector que conté el dia, mes i any de la primera data
+&nbsp;     * @param data2 un vector que conté el dia, mes i any de la segona data
+&nbsp;     * @return 1 si la primera data és major que la segona, 0 si són iguals, -1 si és menor, i -2 si alguna data és
+&nbsp;     * incorrecta (incloent vectors nuls o en un número de caselles diferent que 3)
+&nbsp;     */
+&nbsp;    public static int comparaDates(int[] data1, int[] data2){
+&nbsp;        //Primer tractem els casos on els vectors paràmetre donen problemes
+<b class="nc">&nbsp;        if(data1==null || data2==null || data1.length!=3 || data2.length!=3) return -2;</b>
+&nbsp;
+<b class="nc">&nbsp;        return comparaDates(data1[0],data1[1],data1[2],data2[0],data2[1],data2[2]);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu si les dates que rep són diferents o iguals
+&nbsp;     * @param dia1 un número que representa el dia de la primera data
+&nbsp;     * @param mes1 un número que representa el mes de la primera data
+&nbsp;     * @param any1 un número que representa l&#39;any de la primera data
+&nbsp;     * @param dia2 un número que representa el dia de la segona data
+&nbsp;     * @param mes2 un número que representa el mes de la segona data
+&nbsp;     * @param any2 un número que representa l&#39;any de la segona data
+&nbsp;     * @return 1 si la primera data és major que la segona, 0 si són iguals, -1 si és menor, i -2 si alguna data és incorrecta
+&nbsp;     */
+&nbsp;    public static int comparaDates(int dia1, int mes1, int any1, int dia2, int mes2, int any2) {
+&nbsp;        //Primer comprovem si la dates són correctes
+<b class="nc">&nbsp;        if(!dataCorrecta(dia1, mes1, any1) || !dataCorrecta(dia2, mes2, any2)) return -2;</b>
+&nbsp;
+&nbsp;        //primer comparem els anys
+<b class="nc">&nbsp;        if(any1&gt;any2) return 1;</b>
+<b class="nc">&nbsp;        else if(any1&lt;any2) return -1;</b>
+&nbsp;
+&nbsp;        //Aquí arribem si els anys són iguals, per tant ara comparem els mesos
+<b class="nc">&nbsp;        if(mes1&gt;mes2) return 1;</b>
+<b class="nc">&nbsp;        else if(mes1&lt;mes2) return -1;</b>
+&nbsp;
+&nbsp;        //Aquí arribem si els mesos també són iguals, per tant ara comparem els dies
+<b class="nc">&nbsp;        if(dia1&gt;dia2) return 1;</b>
+<b class="nc">&nbsp;        else if(dia1&lt;dia2) return -1;</b>
+&nbsp;
+&nbsp;        //Aquí arribem si les 2 dates eren idèntiques
+<b class="nc">&nbsp;        return 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Diu quants dies hi ha entre 2 dates
+&nbsp;     * @param dia1 un número que representa el dia de la primera data
+&nbsp;     * @param mes1 un número que representa el mes de la primera data
+&nbsp;     * @param any1 un número que representa l&#39;any de la primera data
+&nbsp;     * @param dia2 un número que representa el dia de la segona data
+&nbsp;     * @param mes2 un número que representa el mes de la segona data
+&nbsp;     * @param any2 un número que representa l&#39;any de la segona data
+&nbsp;     * @return El número de dies entre les dates si estes són correctes, i -1 si hi ha alguna data incorrecta
+&nbsp;     */
+&nbsp;    public static int diferenciaDies(int dia1, int mes1, int any1, int dia2, int mes2, int any2) {
+&nbsp;        //Primer comprovem si la dates són correctes
+<b class="nc">&nbsp;        if(!dataCorrecta(dia1, mes1, any1) || !dataCorrecta(dia2, mes2, any2)) return -1;</b>
+&nbsp;
+&nbsp;        //Ara comprovem quina data és major i, si cal, fem que la primera sigue menor que la segona
+<b class="nc">&nbsp;        switch(comparaDates(dia1,mes1,any1,dia2,mes2,any2)){</b>
+&nbsp;            case 0:
+&nbsp;                //En este cas les 2 dates eren la mateixa, per tant acabem retornant 0
+<b class="nc">&nbsp;                return 0;</b>
+&nbsp;            case 1:
+&nbsp;                //En este cas la primera data és major que la segona, per tant les intercanviem
+<b class="nc">&nbsp;                int temp=dia1;</b>
+<b class="nc">&nbsp;                dia1=dia2;</b>
+<b class="nc">&nbsp;                dia2=temp;</b>
+<b class="nc">&nbsp;                temp=mes1;</b>
+<b class="nc">&nbsp;                mes1=mes2;</b>
+<b class="nc">&nbsp;                mes2=temp;</b>
+<b class="nc">&nbsp;                temp=any1;</b>
+<b class="nc">&nbsp;                any1=any2;</b>
+<b class="nc">&nbsp;                any2=temp;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //Si arribem aquí segur que la primera data és  menor que la segoan, per tant comptarem els dies que hi ha entre ambdues
+<b class="nc">&nbsp;        int compt=0;</b>
+<b class="nc">&nbsp;        while(comparaDates(dia1,mes1,any1,dia2,mes2,any2)!=0){</b>
+&nbsp;            //Calculem data del dia següent de la data1, i l&#39;actualitzem
+<b class="nc">&nbsp;            int[] dema=diaSeguent(dia1,mes1,any1);</b>
+<b class="nc">&nbsp;            dia1=dema[0];</b>
+<b class="nc">&nbsp;            mes1=dema[1];</b>
+<b class="nc">&nbsp;            any1=dema[2];</b>
+&nbsp;
+&nbsp;            //Comptem que ha passat un dia
+<b class="nc">&nbsp;            compt++;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //Retornem el número de dies entre ambdues dates
+<b class="nc">&nbsp;        return compt;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-27 10:48</div>
+</div>
+</body>
+</html>

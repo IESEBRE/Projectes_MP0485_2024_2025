@@ -1,0 +1,220 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > Numero</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.iesebre.library20242025</a>
+</div>
+
+<h1>Coverage Summary for Class: Numero (com.iesebre.library20242025)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Numero</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/36)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.iesebre.library20242025;
+&nbsp;
+&nbsp;import java.util.Scanner;
+&nbsp;
+<b class="nc">&nbsp;public class Numero {</b>
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Genera un número enter inferior al que rebem com a paràmetre i major o igual que 0
+&nbsp;     * @param text un text que diu el que hem de fer
+&nbsp;     * @param num el valor superior a introduir
+&nbsp;     * @return retorna un enter entre 0 i num menys 1
+&nbsp;     */
+&nbsp;    public static int demanaValor(String text, int num){
+<b class="nc">&nbsp;        Scanner entrada=new Scanner(System.in);</b>
+&nbsp;        int valor;
+&nbsp;        do{
+<b class="nc">&nbsp;            System.out.format(&quot;\nIntroduix %s a consultar (0-%d):\n&quot;, text,num-1);</b>
+<b class="nc">&nbsp;            valor=entrada.nextInt();</b>
+<b class="nc">&nbsp;        }while(valor&lt;0 || valor&gt;=num);</b>
+&nbsp;
+<b class="nc">&nbsp;        return valor;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Retorna la suma dels n primers números naturals
+&nbsp;     * @param n un número enter
+&nbsp;     * @param recursiu si volem usar la versió recursiva o iterativa
+&nbsp;     * @return la suma dels n primers numeros naturals, o -1 si n és mneor que 0
+&nbsp;     */
+&nbsp;    public static int sumaNaturals(int n, boolean recursiu){
+&nbsp;        //Casos no recursius o de parada
+<b class="nc">&nbsp;        if(n&lt;0) return -1;</b>
+<b class="nc">&nbsp;        if(n==0) return 0;</b>
+&nbsp;
+<b class="nc">&nbsp;        if(recursiu){</b>
+&nbsp;
+&nbsp;            //Cas recursiu
+<b class="nc">&nbsp;            return n+sumaNaturals(n-1, true);</b>
+&nbsp;        }else{
+<b class="nc">&nbsp;            int suma=0;</b>
+<b class="nc">&nbsp;            while(n&gt;0){</b>
+<b class="nc">&nbsp;                suma+=n;</b>
+<b class="nc">&nbsp;                n--;</b>
+&nbsp;            }
+<b class="nc">&nbsp;            return suma;</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Obté els dígits d&#39;un número i els guarda dins d&#39;un vector
+&nbsp;     * @param numero un valor enter positiu, negatiu o 0
+&nbsp;     * @return un vector d&#39;enters de la mida exacta contenint els dígits del número. Si el número és negatiu la primera
+&nbsp;     * casella del vector serà negativa i la resta positives
+&nbsp;     */
+&nbsp;    public static int[] vectorDigits(int numero){
+&nbsp;        //Mirem si el numero és negatiu, i en en cas afirmatiu m&#39;ho apunto i el passo a positiu
+<b class="nc">&nbsp;        boolean negatiu=numero&lt;0;</b>
+<b class="nc">&nbsp;        if(negatiu) numero*=-1;     //si és negatiu lo passo a positiu</b>
+&nbsp;
+&nbsp;        //Calculem la llargada del número i instanciem el vector resultat
+<b class="nc">&nbsp;        int[] resultat=new int[Integer.toString(numero).length()];</b>
+&nbsp;
+&nbsp;        //Col·locar cada dígit del numero a la casella del vector corresponent (de dreta a esquerra)
+<b class="nc">&nbsp;        int index= resultat.length-1;</b>
+<b class="nc">&nbsp;        while(numero!=0){</b>
+<b class="nc">&nbsp;            resultat[index]=numero % 10;</b>
+<b class="nc">&nbsp;            index--;</b>
+<b class="nc">&nbsp;            numero/=10;</b>
+&nbsp;        }
+&nbsp;
+&nbsp;        //Miro si el numero era negatiu i en cas afirmatiu canvio el siguen del primer dígit del vector
+<b class="nc">&nbsp;        if(negatiu) resultat[0]*=-1;</b>
+<b class="nc">&nbsp;        return resultat;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    /**
+&nbsp;     * Obté el valor enter representat com a número dins d&#39;un vector
+&nbsp;     * @param numero vector que conté els dígits d&#39;un número. Han de ser o tots positius, o el primer negatiu i la resta positius
+&nbsp;     * @return el valor enter representat dins del vector, o 0 si rebem un null o un vector buit
+&nbsp;     */
+&nbsp;    public static int numVector(int[] numero){
+&nbsp;        //Tractament de casos especials del paràmetre
+<b class="nc">&nbsp;        if(numero==null || numero.length==0) return 0;</b>
+&nbsp;
+&nbsp;        //Mirem si el numero és negatiu, i en en cas afirmatiu m&#39;ho apunto i el passo a positiu
+<b class="nc">&nbsp;        boolean negatiu=numero[0]&lt;0;</b>
+<b class="nc">&nbsp;        if(negatiu) numero[0]*=-1;     //si és negatiu lo passo a positiu</b>
+&nbsp;
+&nbsp;        //Col·locar cada dígit del numero a la casella del vector corresponent (de dreta a esquerra)
+<b class="nc">&nbsp;        int index= numero.length-1;</b>
+<b class="nc">&nbsp;        int pot10=1;</b>
+<b class="nc">&nbsp;        int resultat=0;</b>
+<b class="nc">&nbsp;        while(index&gt;=0){</b>
+<b class="nc">&nbsp;            resultat+=numero[index] * pot10;</b>
+<b class="nc">&nbsp;            index--;</b>
+<b class="nc">&nbsp;            pot10*=10;</b>
+&nbsp;        }
+&nbsp;
+<b class="nc">&nbsp;        return resultat*(negatiu?-1:1);</b>
+&nbsp;
+&nbsp;    }
+&nbsp;
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-01-27 10:48</div>
+</div>
+</body>
+</html>

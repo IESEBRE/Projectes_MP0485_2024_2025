@@ -72,8 +72,8 @@ public class Exercici20 {
         System.out.println(reemplassaMultiplesCaracters("",' ', ' '));
         System.out.println(reemplassaMultiplesCaracters("Hola",'p', 'o'));
         System.out.println(reemplassaMultiplesCaracters("Hola",'p', 'o', null));
-        System.out.println(reemplassaMultiplesCaracters("Hola",'p', 'o', new char[]{}));
-        System.out.println(reemplassaMultiplesCaracters("xHoclab",'p', 'o', new char[]{'H','l','a'}));
+        System.out.println(reemplassaMultiplesCaracters("Hola",'p', 'o'));
+        System.out.println(reemplassaMultiplesCaracters("xHoclab",'p', 'o', 'H','l','a'));
 
         System.out.println(reemplassaMultiplesCaracters("", 'p', 't'));
         System.out.println(reemplassaMultiplesCaracters(null, 'p', 't'));

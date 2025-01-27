@@ -30,7 +30,7 @@ public class Exercici17 {
 
         tractaParametres(null);
 
-        tractaParametres(new int[]{});
+        tractaParametres();
     }
 
 }

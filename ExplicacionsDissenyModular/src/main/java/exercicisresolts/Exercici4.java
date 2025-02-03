@@ -26,6 +26,8 @@ public class Exercici4 {
         if(pos<0) pos=0;
         if(pos>text.length()) pos=text.length();
 
+
+
         //Casos normals
         return text.substring(0,pos)+subcadena+text.substring(pos);
     }

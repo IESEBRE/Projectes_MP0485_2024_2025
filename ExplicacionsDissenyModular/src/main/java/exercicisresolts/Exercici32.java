@@ -10,6 +10,22 @@ public class Exercici32 {
         return fibonacci(n-1) + fibonacci(n-2);
     }
 
+    public static int fibonacciIt(int n){
+        //Casos de parada
+        if(n<0) return -1;
+        if(n==0 || n==1) return n;
+        //Casos iteratius, n>=2
+        int t1=0, t2=1, terme=t1+t2;
+
+        while(n>2){
+            t1=t2;
+            t2=terme;
+            terme=t1+t2;
+            n--;
+        }
+        return terme;
+    }
+
     public static void main(String[] args) {
         int ant=1;
         for (int i = 2; i < 50; i++) {

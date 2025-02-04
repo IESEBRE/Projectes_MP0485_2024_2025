@@ -1,4 +1,4 @@
-package org.example;
+package excepcions;
 
 public class Propagadora {
 

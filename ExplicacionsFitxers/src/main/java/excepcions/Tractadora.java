@@ -1,5 +1,5 @@
-package org.example;
-import static org.example.Propagadora.generaExcepcio;
+package excepcions;
+import static excepcions.Propagadora.generaExcepcio;
 
 public class Tractadora {
 

@@ -199,7 +199,7 @@ public class DirectAccessFile<T extends Serializable> {
      *
      * @return l'objecte llegit del fitxer, o null si la posició actual del punter no és correcta o no hi ha objectes
      * @throws IOException            provocada per un error d'entrada/sortida
-     * @throws ClassNotFoundException provocada si no es troba la classe a la que pertany l'instància a guardar
+     * @throws ClassNotFoundException provocada si no es troba la classe a la que pertany l'instància
      */
     public T readObject() throws IOException  {
         //Si no hi ha objectes
@@ -211,12 +211,12 @@ public class DirectAccessFile<T extends Serializable> {
 
             byte[] data = new byte[length];
             raf.readFully(data); // Read the object data
-            raf.seek(raf.getFilePointer()+length+4);
+            raf.seek(raf.getFilePointer()+4);
             ByteArrayInputStream bis = new ByteArrayInputStream(data);
             ObjectInputStream ois = new ObjectInputStream(bis);
             return ((T) ois.readObject());
         }catch(ClassNotFoundException | EOFException e){
-            //Si nla posició no era correcta
+            //Si la posició no era correcta
         }
         return null;
     }
@@ -240,37 +240,66 @@ public class DirectAccessFile<T extends Serializable> {
         return comptObjs;
     }
 
+    /**
+     * Ens situa al principi del fitxer
+     * @throws IOException  provocada per un error d'entrada/sortida
+     */
     public void goToBeggining() throws IOException {
         raf.seek(0);
     }
 
     /**
-     * Borrem un objecte de la posició especificada del fitxer
+     * Ens situa al final del fitxer
+     * @throws IOException  provocada per un error d'entrada/sortida
+     */
+    public void goToEnd() throws IOException {
+        raf.seek(raf.length());
+    }
+
+    /**
+     * Borrem l'objecte de la posició especificada del fitxer
      *
      * @param position un valor enter
-     * @return l'objecte borrat si s'ha pogut i null en cas contrari. La posició ha de ser major o igual que 0 i menor
+     * @return l'objecte borrat si s'ha trobat i null en cas contrari. La posició ha de ser major o igual que 0 i menor
      * que el número d'objectes del fitxer.
      * @throws IOException            provocada per un error d'entrada/sortida
-     * @throws ClassNotFoundException provocada si no es troba la classe a la que pertany l'instància a guardar
+     * @throws ClassNotFoundException provocada si no es troba la classe a la qual pertany la instància a borrar
      */
     public T deleteObject(int position) throws IOException, ClassNotFoundException {
         if (position < 0 || comptObjs == 0 || position >= comptObjs) return null;
 
-        T resultat = null;
+        //Recuperem l'objecte a borrar
+        T resultat = (T) this.readObject(position);  //Hem trobat un objecte
 
-        //Miro el tamany dels objectes del fitxer --> segur que a la primera posició del fitxer el trobaré, ja que segur
-        // que hi ha algun objecte
-        raf.seek(0);
-        int tamany = raf.readInt();
+        /// /////////////////////////////////////////////////////////////
+        //Tractem l'objecte a insertar
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(bos);
+        oos.writeObject(object);
+        oos.flush();
+        byte[] data = bos.toByteArray();
 
-        //Busquem la posicio on hem de borrar l'objecte
-        //raf.seek(position * (tamany+8));
-        resultat = (T) this.readObject(position);  //Hem trobat un objecte
-        moveBackwards(tamany + 8, position * (tamany + 8));  //Tamany de l'objecte més 8 bytes per l'enter del tamany
+        //Anem a buscar la posició de borrat
+        int compt = 1;
+        long punter = 0;
+        do {
+            raf.seek(punter);
+            int tamany = raf.readInt(); // Read the length of the object
 
-        comptObjs--;    //Decremento el comptador d'objectes del fitxer
-        //raf.setLength(raf.length()-(tamany+8));
+            if (position + 1 == compt) {  //estem a l'objecte buscat
+
+                moveBackwards(tamany + 8, punter + tamany + 8);
+                break;
+            }
+            compt++;
+            punter += tamany + 8;
+        } while (true);
+
+        //Decremento el comptador d'objectes del fitxer
+        comptObjs--;
+
         return resultat;
+
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
@@ -284,7 +313,7 @@ public class DirectAccessFile<T extends Serializable> {
             f.writeObject(new Pojo("nom"+i, i+new Random().nextInt(100)),pos);
             f.writeObject(new Pojo("nom_final" + i, new Random().nextInt(100)));
         }
-        f.goToBeggining();
+        f.goToEnd();
         for (int i = 0; i < f.size(); i++) {
             System.out.println(f.readObject());
         }

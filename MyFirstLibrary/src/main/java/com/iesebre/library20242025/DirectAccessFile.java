@@ -118,26 +118,6 @@ public class DirectAccessFile<T extends Serializable> {
 
     }
 
-    private void moveBackwards(int movementSize, long initialPosition) throws IOException {
-        // Desplaçar el contingut del fitxer per deixar espai lliure
-        long fileLength = raf.length();
-        byte[] buffer = new byte[movementSize];
-        long readPos = initialPosition + movementSize;
-        long writePos = initialPosition;
-
-        while (readPos < fileLength) {
-            raf.seek(readPos);
-            int bytesRead = raf.read(buffer);
-            raf.seek(writePos);
-            raf.write(buffer, 0, bytesRead);
-            readPos += bytesRead;
-            writePos += bytesRead;
-        }
-
-        // Ajustar la longitud del fitxer
-        //raf.setLength(fileLength - movementSize);
-    }
-
     /**
      * Escrivim un objecte nou al final del fitxer
      *
@@ -244,7 +224,7 @@ public class DirectAccessFile<T extends Serializable> {
      * Ens situa al principi del fitxer
      * @throws IOException  provocada per un error d'entrada/sortida
      */
-    public void goToBeggining() throws IOException {
+    public void goToBeginning() throws IOException {
         raf.seek(0);
     }
 
@@ -272,13 +252,6 @@ public class DirectAccessFile<T extends Serializable> {
         T resultat = (T) this.readObject(position);  //Hem trobat un objecte
 
         /// /////////////////////////////////////////////////////////////
-        //Tractem l'objecte a insertar
-        ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        ObjectOutputStream oos = new ObjectOutputStream(bos);
-        oos.writeObject(object);
-        oos.flush();
-        byte[] data = bos.toByteArray();
-
         //Anem a buscar la posició de borrat
         int compt = 1;
         long punter = 0;
@@ -288,7 +261,7 @@ public class DirectAccessFile<T extends Serializable> {
 
             if (position + 1 == compt) {  //estem a l'objecte buscat
 
-                moveBackwards(tamany + 8, punter + tamany + 8);
+                moveBackwards(tamany + 8, punter);
                 break;
             }
             compt++;
@@ -302,32 +275,51 @@ public class DirectAccessFile<T extends Serializable> {
 
     }
 
+    private void moveBackwards(int movementSize, long initialPosition) throws IOException {
+        // Desplaçar el contingut del fitxer per deixar espai lliure
+        long fileLength = raf.length();
+        long readPos = initialPosition + movementSize;
+        long writePos = initialPosition;
+
+        while (readPos < fileLength) {
+            raf.seek(readPos);
+            int length = raf.readInt(); // Read the length of the object
+            byte[] buffer = new byte[length+8];
+            raf.seek(readPos);
+            int bytesRead = raf.read(buffer);
+            raf.seek(writePos);
+            raf.write(buffer, 0, bytesRead);
+            readPos += bytesRead;
+            writePos += bytesRead;
+        }
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         DirectAccessFile f = new DirectAccessFile();
         f.deleteAll();
-//
-//        f.writeObject(new Pojo("primer",70),4);
-        for (int i = 0; i < 100; i++) {
+
+        f.writeObject(new Pojo("primer",70),4);
+        for (int i = 0; i < 10; i++) {
             int pos=new Random().nextInt(f.size()+1);
-//            System.out.println("Anem a insertar l'objecte: "+pos);
+            System.out.println("Anem a insertar l'objecte: "+pos);
             f.writeObject(new Pojo("nom"+i, i+new Random().nextInt(100)),pos);
             f.writeObject(new Pojo("nom_final" + i, new Random().nextInt(100)));
         }
-        f.goToEnd();
+        f.goToBeginning();
         for (int i = 0; i < f.size(); i++) {
             System.out.println(f.readObject());
         }
 
-//        for (int i = 0; i <10 ; i++) {
-//            int pos=new Random().nextInt(f.size()+1);
-//            System.out.println("Anem a borrar l'objecte: "+pos);
-//            f.deleteObject(pos);
-//
-//        }
-//
-//        for (int i = 0; i < f.size(); i++) {
-//            System.out.println(f.readObject(i));
-//        }
+        for (int i = 0; i <10 ; i++) {
+            int pos=new Random().nextInt(f.size()+1);
+            System.out.println("Anem a borrar l'objecte: "+pos);
+            f.deleteObject(pos);
+
+        }
+
+        for (int i = 0; i < f.size(); i++) {
+            System.out.println(f.readObject(i));
+        }
 
     }
 }

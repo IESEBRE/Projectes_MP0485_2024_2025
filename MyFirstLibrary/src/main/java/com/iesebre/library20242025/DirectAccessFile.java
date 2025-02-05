@@ -164,14 +164,15 @@ public class DirectAccessFile<T extends Serializable> {
      * Obté la instància que està a la posició indicada del fitxer
      *
      * @param position un valor enter
-     * @return l'objecte llegit del fitxer, o null si la posició no és major o igual que 0, o és inexistent
+     * @return l'objecte llegit del fitxer, o null si la posició no és major o igual que 0, o és inexistent o no hi ha
+     * objectes
      * @throws IOException            provocada per un error d'entrada/sortida
      * @throws ClassNotFoundException provocada si no es troba la classe a la que pertany l'instància a guardar
      */
     public T readObject(int position) throws IOException, ClassNotFoundException {
         //Si no hi ha objectes o la posició és incorrecta retornem null
         if (position < 0 || comptObjs == 0 || position >= comptObjs) return null;
-/// ///////////////////////////////////////////////
+
         //Busquem la posicio al fitxer de l'objecte, saltant els objectes anteriors fins arribar
         int compt = 1;
         long punter = 0;
@@ -191,7 +192,33 @@ public class DirectAccessFile<T extends Serializable> {
             punter += length + 8;       //4 bytes per cada variable de tamany que posem abans i després de l'objecte
         } while (true);
 
+    }
 
+    /**
+     * Obté la instància que està a la posició actual del punter del fitxer
+     *
+     * @return l'objecte llegit del fitxer, o null si la posició actual del punter no és correcta o no hi ha objectes
+     * @throws IOException            provocada per un error d'entrada/sortida
+     * @throws ClassNotFoundException provocada si no es troba la classe a la que pertany l'instància a guardar
+     */
+    public T readObject() throws IOException  {
+        //Si no hi ha objectes
+        if ( comptObjs == 0 ) return null;
+
+        //Busquem la posicio al fitxer de l'objecte, saltant els objectes anteriors fins arribar
+        try {
+            int length = raf.readInt(); // Read the length of the object
+
+            byte[] data = new byte[length];
+            raf.readFully(data); // Read the object data
+            raf.seek(raf.getFilePointer()+length+4);
+            ByteArrayInputStream bis = new ByteArrayInputStream(data);
+            ObjectInputStream ois = new ObjectInputStream(bis);
+            return ((T) ois.readObject());
+        }catch(ClassNotFoundException | EOFException e){
+            //Si nla posició no era correcta
+        }
+        return null;
     }
 
     /**
@@ -211,6 +238,10 @@ public class DirectAccessFile<T extends Serializable> {
      */
     public int size() {
         return comptObjs;
+    }
+
+    public void goToBeggining() throws IOException {
+        raf.seek(0);
     }
 
     /**
@@ -247,15 +278,15 @@ public class DirectAccessFile<T extends Serializable> {
         f.deleteAll();
 //
 //        f.writeObject(new Pojo("primer",70),4);
-        for (int i = 0; i < 1111; i++) {
+        for (int i = 0; i < 100; i++) {
             int pos=new Random().nextInt(f.size()+1);
-            System.out.println("Anem a insertar l'objecte: "+pos);
+//            System.out.println("Anem a insertar l'objecte: "+pos);
             f.writeObject(new Pojo("nom"+i, i+new Random().nextInt(100)),pos);
             f.writeObject(new Pojo("nom_final" + i, new Random().nextInt(100)));
         }
-
+        f.goToBeggining();
         for (int i = 0; i < f.size(); i++) {
-            System.out.println(f.readObject(i));
+            System.out.println(f.readObject());
         }
 
 //        for (int i = 0; i <10 ; i++) {

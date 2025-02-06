@@ -20,7 +20,7 @@ jobs:
         distribution: 'adopt'
 
     - name: Build with Maven
-      run: mvn clean install
+      run: cd MyFirstLibrary & mvn clean install
 
     - name: Publish to GitHub Packages
       run: mvn deploy

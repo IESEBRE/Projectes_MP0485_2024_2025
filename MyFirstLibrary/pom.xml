@@ -33,7 +33,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/IESEBRE/Projectes_MP0485_2024_2025</url>
+            <url>https://maven.pkg.github.com/ssabate/Mp0485UsefulCode</url>
         </repository>
     </distributionManagement>
 

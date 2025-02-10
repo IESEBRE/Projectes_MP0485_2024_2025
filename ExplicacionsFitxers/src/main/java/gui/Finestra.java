@@ -1,5 +1,7 @@
 package gui;
 
+import com.iesebre.usefulcode.DirectAccessFile;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -18,6 +20,9 @@ public class Finestra extends JFrame {
     private JTable taula;
     //Model de dades de la taula
     private DefaultTableModel dtm;
+
+    //Fitxer d'accés directe
+    private DirectAccessFile<Pojo> daf;
 
     public Finestra(){
         //Per poder visualitzar la finestra farem...

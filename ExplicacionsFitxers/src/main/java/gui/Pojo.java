@@ -15,6 +15,10 @@ public class Pojo implements Serializable {
         this.cognoms = cognoms;
     }
 
+    public Pojo(String cognoms) {
+        this.cognoms = cognoms;
+    }
+
     public String getNom() {
         return nom;
     }

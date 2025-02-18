@@ -3,9 +3,11 @@ package gui;
 import com.iesebre.usefulcode.DirectAccessFile;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
 
 public class Finestra extends JFrame {
@@ -17,6 +19,7 @@ public class Finestra extends JFrame {
     private JTextField campCognoms;
     private JTable taula;
     private JComboBox comboBox1;
+    private JButton seleccionarFitxerButton;
     //Model de dades de la taula
     private DefaultTableModel dtm;
 
@@ -29,6 +32,12 @@ public class Finestra extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
+
+        // Set the minimum size to the current size
+        setMinimumSize(getPreferredSize());
+
+        // Center the frame on the screen
+        setLocationRelativeTo(null);
 
         //Instanciem el fitxer
         daf=new DirectAccessFile<>("pojos.dat");
@@ -135,6 +144,21 @@ public class Finestra extends JFrame {
                 } catch (IOException ex) {
                     JOptionPane.showMessageDialog(e.getComponent(),"Hi ha hagut algun error d'I/O al tancar el programa!!");
                 }
+            }
+        });
+        seleccionarFitxerButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                JFileChooser jfc = new JFileChooser();
+                jfc.setFileSelectionMode(JFileChooser.FILES_ONLY);
+                jfc.setFileFilter(new FileNameExtensionFilter("JSON files", "json"));
+
+                int result=jfc.showDialog((Component)actionEvent.getSource(), "Selecciona");
+
+                File f = jfc.getSelectedFile();
+
+                if (f != null && result == JFileChooser.APPROVE_OPTION) JOptionPane.showMessageDialog((Component)actionEvent.getSource(),"Has seleccionat el fitxer "+f.getName());
+                else  JOptionPane.showMessageDialog((Component)actionEvent.getSource(),"No has seleccionat cap fitxer!!");
             }
         });
     }
